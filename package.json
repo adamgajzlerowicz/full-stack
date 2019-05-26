@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "lint": "lerna run lint",
+    "lerna": "lerna"
+  },
+  "devDependencies": {
+    "lerna": "^3.14.1"
+  }
+}
