@@ -1,4 +1,4 @@
 init:
-    yarn
+	yarn
 #	yarn run seed
 	yarn start
