@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123
+
+  backend:
+    image: node:latest
+    ports:
+      - 5000:5000
+    volumes:
+      - ./packages/back:/api
+    working_dir: /api
+    command: make init
+    depends_on:
+      - mongo
+    environment:
+      - DB_LOGIN=root
+      - DB_PASSWORD=123
+      - DB_HOST=db
+      - DB_SCHEMA=meh
+      - HASH="123ewer09LKJDFIJU"
+
+  frontend:
+    image: node:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./packages/front:/app
+    working_dir: /app
+    command: make init
+
+
+
+
