@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "lint": "lerna run lint",
+    "dev": "lerna run start:dev",
     "lerna": "lerna"
   },
   "devDependencies": {
