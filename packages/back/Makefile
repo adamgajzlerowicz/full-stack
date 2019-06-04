@@ -1,4 +1,4 @@
 init:
 	yarn
 #	yarn run seed
-	yarn start
+	yarn start:dev
